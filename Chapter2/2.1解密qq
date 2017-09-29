@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+/*
+ * 问题描述：解密qq号
+ * 输入：631758924 删除第一个数字，第二个数字移至末尾，一直继续
+ * 输出：按照删除顺序输出 615947283
+ */
+class queue {
+	public static void main(String[] args){
+		/*
+		 * 1.数组存储数字
+		 * 2.设置两个整型变量head指向数组第一个数字，tail指向最后一个元素的下一位
+		 * 3.删除元素head++,增加tail++
+		 */
+		int[] a=new int[100];//静态初始化数组,0为填充位，填充a[0]
+		Scanner sc=new Scanner(System.in);
+		for(int i=1;i<=9;i++){
+			a[i]=sc.nextInt();
+		}
+		int head=1,tail=10;
+		while(head!=tail){
+			System.out.print(a[head]);	
+			head++;
+			a[tail]=a[head];
+			head++;
+			tail++;		
+		}
+	}
+
+}   
+结果：6 3 1 7 5 8 9 2 4
+615947283
