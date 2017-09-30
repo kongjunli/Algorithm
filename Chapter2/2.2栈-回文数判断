@@ -5,4 +5,43 @@
 
 判断回文数   
 -----------------------------------------------------------------------------------------------------------------------------------   
-   
+   import java.util.Scanner;
+
+/*
+ * 问题描述：xyzyx判断一个字符串是否为回文串
+ * 利用栈存储
+ * 思路：将xyzyx中间位置前的放入栈
+ */
+public class stack_huiwen {
+	/*
+	 * char[] a:存储待判断字符串
+	 * char[] s:用于栈，存储
+	 * mid:a的中间位置
+	 */
+	public static void main(String[] args){
+		char[] a={'x','y','z','y','x'};
+		char[] s=new char[100];
+		int top=0;
+		Scanner sc=new Scanner(System.in);
+		int mid=(a.length-1)/2;
+		//入栈
+		for(int i=0;i<=mid;i++){
+			s[++top]=a[i];
+		}
+		for(int i=mid;i<a.length;i++)
+		{
+			if(a[i]!=s[top])
+				break;
+			top--;
+			
+		}
+			if(top==0)
+				System.out.println("是回文数");
+			else
+				System.out.println("不是回文数");
+			
+		
+	}
+
+}
+
